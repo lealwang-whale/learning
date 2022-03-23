@@ -1,4 +1,4 @@
-# Config kubernetes cluster on CentOS8
+# Configure kubernetes cluster on CentOS8
 ## server preparation
 - CentOS8 servers on cloud (1 master node and 1 worker node)
 > here, I prepare two servers running CentOS8
@@ -161,7 +161,7 @@ Now, you can verify your cluster status on master node via:
 ```shell
 # kubectl get nodes
 ```
-If things go well, you would see:  
+If all steps go well, you would see all nodes are ready in the cluster.
 ```shell
 NAME          STATUS   ROLES                  AGE   VERSION
 master-node   Ready    control-plane,master   27h   v1.23.5

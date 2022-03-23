@@ -71,12 +71,12 @@
     # firewall-cmd --permanent --add-port=10248-10255/tcp
     # firewall-cmd --permanent --add-port=2379-2380/tcp
     ```
-    reload firewall ruless
+    reload firewall rules
     ```shell
     # firewall-cmd --reload
     ```
     
-Please **NOTES** that the port access rule of above ports on the servers need to be disclosed on your cloud console. For AWS users, you can configure the security group to open the port access.
+Please **NOTES** that the port access rule of above ports on the servers needs to be disclosed on your cloud console. For AWS users, you can configure the security group to open the port access.
 
 ### step2: docker installation **[on all nodes]**
 
@@ -89,7 +89,7 @@ Please **NOTES** that the port access rule of above ports on the servers need to
     # dnf install docker-ce
     ```
 
-3. [*optional*] ensure docker configure the same *cgroupdriver* as kubernetes.The default *cgroupdriver* of kubernetes is *systemd*. You could edit file */etc/docker/daemon.json* to modify it with adding: 
+3. [*optional*] ensure docker configuring the same *cgroupdriver* as kubernetes.The default *cgroupdriver* of kubernetes is *systemd*. You could edit file */etc/docker/daemon.json* to modify it with adding: 
     ```json
     {
         "exec-opts": ["native.cgroupdriver=systemd"]
@@ -104,7 +104,7 @@ Please **NOTES** that the port access rule of above ports on the servers need to
 
 ### step3: kubernetes component setup **[on all nodes]**
 
-1. configure kubernetes yum source .
+1. configure kubernetes yum source.
     ```shell
     # cat <<EOF > /etc/yum.repos.d/kubernetes.repo
     [kubernetes]
@@ -139,7 +139,7 @@ Please **NOTES** that the port access rule of above ports on the servers need to
     ```shell
     kubeadm join 10.0.8.14:6443 --token girs1w.c1hyfyr3qk933995 --discovery-token-ca-cert-hash sha256:3963d4dcbd2ba003397c50ba023bca0b534d2c9732db26e3d4faee19f2881823
     ```
-    The generated command would be further executed on slaves to join the cluster. Also you can run command to check all valid tokens on your cluster.
+    The generated command would be further executed on slaves to join the cluster. Also, you can run command to check all valid tokens on your cluster.
     ```shell
     # kubeadm token list
     ```
